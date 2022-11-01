@@ -1,0 +1,21 @@
+server:
+  port: 8761
+
+spring:
+  config:
+    import: "configserver:http://localhost:8888"
+  application:
+    name: eureka
+  profiles:
+    active: native
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ['refresh','beans','env']
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false

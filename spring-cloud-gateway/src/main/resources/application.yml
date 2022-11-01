@@ -1,0 +1,36 @@
+server:
+  port: 8087
+
+# GW Route file or java
+# ?? ??? ?? ??? refreshScope ???? ? ??? ??
+spring:
+  config:
+    import: "configserver:http://localhost:8888"
+  cloud:
+    gateway:
+      routes:
+        - id: apiserver
+          uri: lb://APISERVER
+          predicates:
+            - Path=/apiserver/**
+          filters:
+            - RewritePath=/apiserver/(?<uri>.*), /${uri}
+  application:
+    name: gateway
+  profiles:
+    active: native
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*' #??
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka

@@ -1,0 +1,20 @@
+server:
+  port: 8888
+spring:
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        default-profile: native
+        #git:
+        #  uri: {{git repository}}
+        native:
+          search-locations: classpath:/config
+          # Tip. file:///external/path/other.properties (?? ?? ??? * redis, jdbc, git ? ???? ?? ??)
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ['refresh', 'beans', 'evn']
