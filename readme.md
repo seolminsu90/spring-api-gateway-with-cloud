@@ -12,3 +12,5 @@
 - fallback 처리
 - dynamic routing (refreshScope? javaconfig?)
 - file 처리
+- 각각 서비스 dockerfile 생성
+- docker-compose
