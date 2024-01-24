@@ -30,11 +30,11 @@ GW에서의 인증 정보는 서비스 별 사용 권한 정도를 가진다.
 
 ### ETC
 
-Global Filter: 모든 라우터에 대한 필터로서, GlobalFilter가 가장 먼저 실행됩니다.
-Pre Filters: GlobalFilter 이후에, 라우팅 전에 실행되는 필터들이 적용됩니다.
-Route Matching: Request를 기반으로 어떤 라우터에 매칭되는지 결정하는 필터입니다.
-Route Filters: 각 라우터에 대한 필터들이 실행됩니다.
-Post Filters: 라우팅 후에 실행되는 필터들이 적용됩니다.
+Global Filter: 모든 라우터에 대한 필터로서, GlobalFilter가 가장 먼저 실행됩니다.   
+Pre Filters: GlobalFilter 이후에, 라우팅 전에 실행되는 필터들이 적용됩니다.   
+Route Matching: Request를 기반으로 어떤 라우터에 매칭되는지 결정하는 필터입니다.   
+Route Filters: 각 라우터에 대한 필터들이 실행됩니다.   
+Post Filters: 라우팅 후에 실행되는 필터들이 적용됩니다.   
 
 ```java
 @Component
