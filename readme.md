@@ -35,3 +35,22 @@ Pre Filters: GlobalFilter 이후에, 라우팅 전에 실행되는 필터들이 
 Route Matching: Request를 기반으로 어떤 라우터에 매칭되는지 결정하는 필터입니다.
 Route Filters: 각 라우터에 대한 필터들이 실행됩니다.
 Post Filters: 라우팅 후에 실행되는 필터들이 적용됩니다.
+
+```java
+@Component
+public class GlobalJwtAuthenticationFilter implements GlobalFilter {
+
+    @Override
+    public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+        Route route = exchange.getAttribute(ServerWebExchangeUtils.GATEWAY_ROUTE_ATTR);
+        if (route != null) {
+            String routeId = route.getId();
+            // routeId를 통해 현재 라우터의 정보를 사용할 수 있음
+            System.out.println("Current route ID: " + routeId);
+        }
+
+        // 다음 필터 또는 라우터 실행
+        return chain.filter(exchange);
+    }
+}
+```
