@@ -39,5 +39,7 @@ eureka:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 
 ```
+
 [참조][ref]
+
 [ref]: https://cloud.spring.io/spring-cloud-netflix/reference/html/#spring-cloud-eureka-server
